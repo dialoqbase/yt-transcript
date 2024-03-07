@@ -1,13 +1,8 @@
 import type { TrasncriptInfo } from '../types'
 import { extractCaptionJson } from '../utils/extract-caption-json'
-import { fetchVideoHtml } from '../utils/fetch-video'
 import { fetchTranscript, formatTranscript } from '../utils/fetch-transcript'
 
-export async function getAllTranscripts(videoId: string, options?: {
-  languageCode?: string
-  headers?: Record<string, string>
-}): Promise<TrasncriptInfo[]> {
-  const html = await fetchVideoHtml(videoId, options)
+export async function getAllTranscripts(html: string): Promise<TrasncriptInfo[]> {
   return extractCaptionJson(html)
 }
 
@@ -15,9 +10,9 @@ export function findTranscriptByLanguage(transcripts: TrasncriptInfo[], language
   return transcripts.find(t => t.languageCode === languageCode) || null
 }
 
-export async function getTranscript(videoId: string, languageCode?: string) {
+export async function getTranscript(html: string, languageCode?: string) {
   let transcript: TrasncriptInfo | null = null
-  const transcripts = await getAllTranscripts(videoId, { languageCode })
+  const transcripts = await getAllTranscripts(html)
   if (transcripts.length === 0)
     return null
 

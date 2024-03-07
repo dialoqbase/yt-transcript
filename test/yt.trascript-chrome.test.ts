@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest'
-import { YtTranscript } from '../src'
+import { YtTranscriptChrome } from '../src'
+import { html } from './utils'
 
-describe('testing YtTranscript', () => {
-  const transcript = new YtTranscript({ url: 'https://www.youtube.com/watch?v=BLmsVvcUxmY' })
+describe('testing YtTranscriptChrome', () => {
+  const transcript = new YtTranscriptChrome({ html })
 
   it('it should return a list of available transcripts', async () => {
     const list = await transcript.listAllTranscripts()
@@ -15,16 +16,16 @@ describe('testing YtTranscript', () => {
     expect(script).toBeDefined()
     const slice = script?.slice(0, 3)
     expect(slice).toEqual([
-      { start: 0.709, duration: 4.755, text: '♪♪♪' },
+      { start: 0.19, duration: 2.03, text: '[Music]' },
       {
-        start: 13.472,
-        duration: 1.543,
-        text: '♪ ONE COMPUTER, FUZZY BLANKET ♪',
+        start: 0.299,
+        duration: 4.081,
+        text: 'Zig a high performance system',
       },
       {
-        start: 15.098,
-        duration: 1.627,
-        text: '♪ MOLDY FOOD,\nONE-PERSON BANQUET ♪',
+        start: 2.22,
+        duration: 4.32,
+        text: 'programming language often labeled as a',
       },
     ])
   })
