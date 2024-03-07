@@ -3,7 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@8.15.3",
-  "description": "A youtube transcript downloader",
+  "description": "A youtube transcript fetcher",
   "author": "Dialoqbase",
   "license": "MIT",
   "funding": "https://github.com/sponsors/n4ze3m",
