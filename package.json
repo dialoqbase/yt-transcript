@@ -1,7 +1,7 @@
 {
   "name": "yt-transcript",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@8.15.3",
   "description": "A youtube transcript fetcher",
   "author": "Dialoqbase",
